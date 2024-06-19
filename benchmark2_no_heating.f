@@ -93,7 +93,7 @@
         E_A=PROPS(10)				       !     ACTIVATION ENERGY
         R=PROPS(11)		                       !     MOLECULAR GAS CONSTANT
         A=PROPS(12)                     	       !     CREEP PRE-EXPONENTIAL CONSTANT
-        PLAST=PROPS(13)			               !     PLASTIC VISCOSITY
+        PLAST=PROPS(13)			               !     INVERSE OF RELATIVE RATE OF VISCOPLASTIC STRAIN
         psi=PROPS(14)                    	       !     DILATANCY ANGLE
         TREF=PROPS(15)				       !     REFERENCE TEMPERATURE
         ALPH_LE=PROPS(16)	         	       !     COEFFICIENT OF LINEAR EXPANSION
