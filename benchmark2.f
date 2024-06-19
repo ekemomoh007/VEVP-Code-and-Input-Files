@@ -61,10 +61,10 @@
       VISCOSITYY=R0
       PHI_YDP=R0
       DO I=1, NTENS
-        EPSILON_VP(I)=STATEV(I)          		        !     SDV 1-4
+        EPSILON_VP(I)=STATEV(I)          		!     SDV 1-4
       END DO
 !     CALL HARDENING HISTORY FROM PREVIOUS TIME STEP 
-      GAMMA_BAR=STATEV(NTENS+1)       			        !     SDV 5     ! DEFORMATION HISTORY 
+      GAMMA_BAR=STATEV(NTENS+1)       			!     SDV 5     ! DEFORMATION HISTORY 
       DGAMA_VISC_OLD=STATEV(NTENS+6)                    !     SDV 6     ! 
       VPSTRAN_1ST_INV=STATEV(NTENS+11)                  !     SDV 13    ! FIRST INVARIANT OF VISCOPLASTIC STRAIN
       VPSTRAN_2ND_INV=STATEV(NTENS+12)                  !     SDV 14    ! SECOND INVARIANT OF VISCOPLASTIC STRAIN 
@@ -81,22 +81,22 @@
 !   ##################################################################################################################################
 !     RETRIEVE RHEOLOGICAL PROPERTIES
 !   ################################################################################################################################## 
-        E=PROPS(1)                        		        !     YOUNG'S MODULUS 
-        v=PROPS(2)                        		        !     POISSON'S RATIO
-        c_0=PROPS(3)                      		        !     INITIAL COHESION
-        H=PROPS(4)                        		        !     HARDENING MODULUS
+        E=PROPS(1)                        		!     YOUNG'S MODULUS 
+        v=PROPS(2)                        		!     POISSON'S RATIO
+        c_0=PROPS(3)                      		!     INITIAL COHESION
+        H=PROPS(4)                        		!     HARDENING MODULUS
         PWR=PROPS(5)                        	        !     STRESS EXPONENT 
         phi_i=PROPS(6)                      	        !     INITIAL FRICTION ANGLE
-        phi_f=PROPS(7)      				            !     FINAL FRICTION ANGLE    
-        RHOD_REF=PROPS(8)		        		        !     REFERENCE DENSITY
-        C_P=PROPS(9)					                !     SPECIFIC HEAT CAPACITY
-        E_A=PROPS(10)					                !     ACTIVATION ENERGY
-        R=PROPS(11)					                    !     MOLECULAR GAS CONSTANT
-        A=PROPS(12)                       		        !     CREEP PRE-EXPONENTIAL CONSTANT
-        PLAST=PROPS(13)					                !     PLASTIC VISCOSITY
-        psi=PROPS(14)                    		        !     DILATANCY ANGLE
-        TREF=PROPS(15)					                !     REFERENCE TEMPERATURE
-        ALPH_LE=PROPS(16)					            !     COEFFICIENT OF LINEAR EXPANSION
+        phi_f=PROPS(7)      				!     FINAL FRICTION ANGLE    
+        RHOD_REF=PROPS(8)		        	!     REFERENCE DENSITY
+        C_P=PROPS(9)					!     SPECIFIC HEAT CAPACITY
+        E_A=PROPS(10)					!     ACTIVATION ENERGY
+        R=PROPS(11)					!     MOLECULAR GAS CONSTANT
+        A=PROPS(12)                       		!     CREEP PRE-EXPONENTIAL CONSTANT
+        PLAST=PROPS(13)				        !     INVERSE OF RELATIVE RATE OF VISCOPLASTIC STRAIN
+        psi=PROPS(14)                    		!     DILATANCY ANGLE
+        TREF=PROPS(15)					!     REFERENCE TEMPERATURE
+        ALPH_LE=PROPS(16)				!     COEFFICIENT OF LINEAR EXPANSION
         EPSILON_BAR_C=PROPS(17)                         !     CRITICAL EFFECTIVE PLASTIC STRAIN
 !   ##################################################################################################################################
 !     COMPUTE QUANTITIES DEPENDENT ON THE RHEOLOGICAL PROPERTIES
@@ -554,13 +554,13 @@
       STATEV(NTENS+1)=GAMMA_BAR                        !     SDV 5     ! HARDENING HISTORY
       STATEV(NTENS+2)=PHI_YDP       	               !     SDV 6     ! DRUCKER-PRAGER YIELD CRITERION
       STATEV(NTENS+3)=SQRTJ2                           !     SDV 7     ! ELASTIC J2
-      STATEV(NTENS+4)=SQRTJ2T		                   !     SDV 8     ! VISCOPLASTIC J2
-      STATEV(NTENS+5)=PRESS*1E9       		           !     SDV 9     ! PRESSURE
-      STATEV(NTENS+6)=DGAMA_VP          		       !     SDV 10    ! VISCOPLASTIC SMOOTH CONE MULTIPLIER
+      STATEV(NTENS+4)=SQRTJ2T		               !     SDV 8     ! VISCOPLASTIC J2
+      STATEV(NTENS+5)=PRESS*1E9       		       !     SDV 9     ! PRESSURE
+      STATEV(NTENS+6)=DGAMA_VP          	       !     SDV 10    ! VISCOPLASTIC SMOOTH CONE MULTIPLIER
       STATEV(NTENS+7)=DOT_VPSTRAN_1ST_INV              !     SDV 11    ! FIRST INVARIANT OF VISCOPLASTIC STRAIN RATE
       STATEV(NTENS+8)=LOG10(DOT_VPSTRAN_2ND_INV)       !     SDV 12    ! LOG10 OF THE SECOND INVARIANT OF VISCOPLASTIC STRAIN RATE 
       STATEV(NTENS+9)=VPSTRAN_1ST_INV                  !     SDV 13    ! FIRST INVARIANT OF VISCOPLASTIC STRAIN
-      STATEV(NTENS+10)=VPSTRAN_2ND_INV            	   !     SDV 14    ! SECOND INVARIANT OF VISCOPLASTIC STRAIN 
+      STATEV(NTENS+10)=VPSTRAN_2ND_INV                 !     SDV 14    ! SECOND INVARIANT OF VISCOPLASTIC STRAIN 
       STATEV(NTENS+11)=DIFF_STRESS                     !     SDV 15    ! DIFFERENTIAL STRESS      
       STATEV(NTENS+12)=RPL                             !     SDV 16    ! HEAT GENERATION PER UNIT TIME
       STATEV(NTENS+13)=DTEMP/DTIME                     !     SDV 17    ! CHECK FOR THERMAL STEADY STATE 
@@ -573,7 +573,7 @@
       STATEV(NTENS+21)=DEPSILON_VP(2)                  !     SDV 25    ! VISCOPLASTIC STRAIN INCREMENT(22)
       STATEV(NTENS+22)=DEPSILON_VP(3)                  !     SDV 26    ! VISCOPLASTIC STRAIN INCREMENT(33)
       STATEV(NTENS+23)=DEPSILON_VP(4)                  !     SDV 27    ! VISCOPLASTIC STRAIN INCREMENT(12)
-      STATEV(NTENS+24)=DGAMA_VISC                             !     SDV 28    ! FRACTION OF MELT      
+      STATEV(NTENS+24)=DGAMA_VISC                      !     SDV 28    ! FRACTION OF MELT      
       RETURN
       END      
 !   ##################################################################################################################################
